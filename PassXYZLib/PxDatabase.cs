@@ -430,7 +430,7 @@ namespace PassXYZLib
 
 			if (user.IsDeviceLockEnabled)
 			{
-				if(!CreateKeyFile(user, kp))
+				if(!CreateKeyFile(user, kp, true))
                 {
 					throw new KeePassLib.Keys.InvalidCompositeKeyException();
 				}
