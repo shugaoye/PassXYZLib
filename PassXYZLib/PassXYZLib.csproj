@@ -56,10 +56,4 @@
     <Folder Include="Services\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <MauiFont Include="Resources\Fonts\fa-brands-400.ttf" />
-    <MauiFont Include="Resources\Fonts\fa-regular-400.ttf" />
-    <MauiFont Include="Resources\Fonts\fa-solid-900.ttf" />
-  </ItemGroup>
-
 </Project>

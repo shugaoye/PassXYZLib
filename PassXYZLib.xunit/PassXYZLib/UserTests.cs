@@ -129,6 +129,11 @@ namespace xunit.PassXYZLib
                 where icon.Name.Contains("hp.com")
                 select icon;
             Debug.WriteLine($"{icons.Count()}");
+            var items = userFixture.PxDb.RootGroup.Items;
+            foreach(var item in items) 
+            {
+                Debug.WriteLine($"Name={item.Name}, Icon={item.GetIconType()}");
+            }
         }
 
 #if PASSXYZ_CLOUD_SERVICE

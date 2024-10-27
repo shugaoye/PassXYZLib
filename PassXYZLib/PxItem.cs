@@ -369,6 +369,37 @@ namespace PassXYZLib
             }
         }
 
+        public static PxIconType GetIconType(this Item item) 
+        {
+            // 1. Get built-in icon
+            if (item.IsGroup)
+            {
+                // Group
+                if (item is PwGroup group)
+                {
+                    if (group.CustomData.Exists(PxDefs.PxCustomDataIconName))
+                    {
+                        return PxIconType.PxBuiltInIcon;
+                    }
+                }
+            }
+            else
+            {
+                // Entry
+                if (item is PwEntry entry)
+                {
+                    if (entry.CustomData.Exists(PxDefs.PxCustomDataIconName))
+                    {
+                        return PxIconType.PxBuiltInIcon;
+                    }
+                }
+            }
+
+            // 2. Get custom icon
+            if (item.GetCustomIconUuid() != PwUuid.Zero) { return PxIconType.PxEmbeddedIcon; }
+            return PxIconType.None;
+        }
+
         public static void SetIcon(this Item item)
         {
             // 1. Get built-in icon

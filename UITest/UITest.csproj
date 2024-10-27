@@ -85,4 +85,11 @@
 	  <ProjectReference Include="..\PassXYZLib\PassXYZLib.csproj" />
 	</ItemGroup>
 
+  <Target Name="CopyDataFiles" AfterTargets="Build">
+    <ItemGroup>
+      <DataFiles Include="..\PassXYZLib.xunit\pass_d_E8f4pEk.xyz" />
+    </ItemGroup>
+
+    <Copy SourceFiles="@(DataFiles)" DestinationFolder="$(TargetDir)\" SkipUnchangedFiles="true" />
+  </Target>
 </Project>
