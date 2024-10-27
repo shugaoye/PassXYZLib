@@ -25,22 +25,22 @@ namespace PassXYZLib
 
         public string Type => IconType.ToString();
 
-        private string _name = null;
-        public string Name
+        private string? _name = null;
+        public string? Name
         {
             get => _name;
             set => _ = SetProperty(ref _name, value);
         }
 
-        private string _filename = null;
-        public string FileName
+        private string? _filename = null;
+        public string? FileName
         {
             get => _filename;
             set => _ = SetProperty(ref _filename, value);
         }
 
-        private ImageSource _imgSource = null;
-        public ImageSource ImgSource
+        private ImageSource? _imgSource = null;
+        public ImageSource? ImgSource
         {
             get => _imgSource;
             set => SetProperty(ref _imgSource, value);

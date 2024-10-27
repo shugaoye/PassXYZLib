@@ -14,6 +14,8 @@
     <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Nullable>enable</Nullable>
+    <NoWarn>1591</NoWarn>
 
     <Version>3.0.1</Version>
     <NeutralLanguage>en-US</NeutralLanguage>
@@ -52,6 +54,12 @@
 
   <ItemGroup>
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiFont Include="Resources\Fonts\fa-brands-400.ttf" />
+    <MauiFont Include="Resources\Fonts\fa-regular-400.ttf" />
+    <MauiFont Include="Resources\Fonts\fa-solid-900.ttf" />
   </ItemGroup>
 
 </Project>

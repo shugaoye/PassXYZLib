@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
+using System.Linq;
 
 using Xunit;
 
 using PassXYZLib;
+using KeePassLib;
+using System.Collections.Generic;
 
 namespace xunit.PassXYZLib
 {
@@ -113,6 +115,23 @@ namespace xunit.PassXYZLib
             Assert.True(userFixture.PxDb.IsOpen);
         }
 
+        [Fact]
+        public void CustomIconTest()
+        {
+            PxDataFile.DataFilePath = System.IO.Directory.GetCurrentDirectory();
+            userFixture.user.Username = "test1";
+            userFixture.user.Password = "12345";
+            Debug.WriteLine($"KeePassKeyFileTest: {userFixture.user.Path}");
+            userFixture.PxDb.Open(userFixture.user);
+            List<PwCustomIcon> customIconList = userFixture.PxDb.CustomIcons;
+            var icons =
+                from icon in customIconList
+                where icon.Name.Contains("hp.com")
+                select icon;
+            Debug.WriteLine($"{icons.Count()}");
+        }
+
+#if PASSXYZ_CLOUD_SERVICE
         static void WatchFileForChanges(string path, string filename)
         {
             using (var watcher = new FileSystemWatcher())
@@ -140,7 +159,6 @@ namespace xunit.PassXYZLib
             Debug.WriteLine($"File: {e.FullPath} {e.ChangeType}");
             _isChanged = true;
         }
-        
         [Fact]
         public void FileChangedTest() 
         {
@@ -155,5 +173,6 @@ namespace xunit.PassXYZLib
             }
             Assert.Equal(user.CurrentFileStatus.IsModified, _isChanged);
         }
+#endif // PASSXYZ_CLOUD_SERVICE
     }
 }
