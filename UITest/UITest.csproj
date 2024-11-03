@@ -85,6 +85,12 @@
 	  <ProjectReference Include="..\PassXYZLib\PassXYZLib.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="Views\IconsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
   <Target Name="CopyDataFiles" AfterTargets="Build">
     <ItemGroup>
       <DataFiles Include="..\PassXYZLib.xunit\pass_d_E8f4pEk.xyz" />

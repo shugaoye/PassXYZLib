@@ -10,6 +10,7 @@ using Xunit.Sdk;
 using KPCLib;
 using KeePassLib;
 using System.Collections;
+using System.Reflection;
 
 namespace PassXYZLib.xunit
 {
@@ -143,5 +144,37 @@ namespace PassXYZLib.xunit
             }
         }
 
+        [Fact]
+        public void GetFontAwesomeBrandsGlyphsTest()
+        {
+            // Arrange
+            var glyphs = FontData.GetGlyphs(typeof(FontAwesomeBrands));
+            // Act
+            Debug.WriteLine($"{glyphs.Count}");
+            // Assert
+            Assert.Equal(457, glyphs.Count);
+        }
+
+        [Fact]
+        public void GetFontAwesomeRegularGlyphsTest() 
+        {
+            // Arrange
+            var glyphs = FontData.GetGlyphs(typeof(FontAwesomeRegular));
+            // Act
+            Debug.WriteLine($"{glyphs.Count}");
+            // Assert
+            Assert.Equal(154, glyphs.Count);
+        }
+
+        [Fact]
+        public void GetFontAwesomeSolidGlyphsTest()
+        {
+            // Arrange
+            var glyphs = FontData.GetGlyphs(typeof(FontAwesomeSolid));
+            // Act
+            Debug.WriteLine($"{glyphs.Count}");
+            // Assert
+            Assert.Equal(915, glyphs.Count);
+        }
     }
 }
