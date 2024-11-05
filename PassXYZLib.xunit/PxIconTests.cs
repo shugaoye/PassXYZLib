@@ -176,5 +176,20 @@ namespace PassXYZLib.xunit
             // Assert
             Assert.Equal(915, glyphs.Count);
         }
+        [Fact]
+        public void FontTypesTest()
+        {
+            // Arrange
+            var types = FontData.Types;
+            // Act
+            Debug.WriteLine($"{types.Length}");
+            Debug.WriteLine($"{nameof(FontType.FontAwesomeBrands)}");
+            foreach (var type in types)
+            {
+                Debug.WriteLine($"{type.Name}");
+            }
+            // Assert
+            Assert.Equal(3, types.Length);
+        }
     }
 }
