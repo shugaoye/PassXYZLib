@@ -160,8 +160,9 @@ namespace PassXYZLib.xunit
         {
             // Arrange
             var glyphs = FontData.GetGlyphs(typeof(FontAwesomeRegular));
+            var fontOrderByName = glyphs.OrderBy(x => x.Key);
             // Act
-            Debug.WriteLine($"{glyphs.Count}");
+            Debug.WriteLine($"glyphs={glyphs.Count}, fontOrderByName={fontOrderByName.Count()}");
             // Assert
             Assert.Equal(154, glyphs.Count);
         }
@@ -171,6 +172,12 @@ namespace PassXYZLib.xunit
         {
             // Arrange
             var glyphs = FontData.GetGlyphs(typeof(FontAwesomeSolid));
+            var arrows = glyphs.Where(x => x.Key.Contains("Arrow")).OrderBy(x => x.Key);
+            foreach (var arrow in arrows)
+            {
+                Debug.WriteLine($"{arrow.Key}");
+            }
+
             // Act
             Debug.WriteLine($"{glyphs.Count}");
             // Assert
@@ -180,16 +187,15 @@ namespace PassXYZLib.xunit
         public void FontTypesTest()
         {
             // Arrange
-            var types = FontData.Types;
+            
             // Act
-            Debug.WriteLine($"{types.Length}");
             Debug.WriteLine($"{nameof(FontType.FontAwesomeBrands)}");
-            foreach (var type in types)
+            foreach (var font in FontData.FontFamily)
             {
-                Debug.WriteLine($"{type.Name}");
+                Debug.WriteLine($"{font.Value.Name}");
             }
             // Assert
-            Assert.Equal(3, types.Length);
+            Assert.Equal(3, FontData.FontFamily.Count);
         }
     }
 }
