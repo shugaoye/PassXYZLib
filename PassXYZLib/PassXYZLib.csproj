@@ -4,7 +4,7 @@
 		<TargetFrameworks>net8.0;net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
     <UseMaui>true</UseMaui>
-    <MauiVersion>8.0.80</MauiVersion>
+    <MauiVersion>8.0.100</MauiVersion>
     <SingleProject>true</SingleProject>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
@@ -17,7 +17,7 @@
     <Nullable>enable</Nullable>
     <NoWarn>1591</NoWarn>
 
-    <Version>3.0.1</Version>
+    <Version>3.0.2</Version>
     <NeutralLanguage>en-US</NeutralLanguage>
     <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
