@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-		<TargetFrameworks>net9.0;net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net10.0;net10.0-android;net10.0-ios;net10.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.19041.0</TargetFrameworks>
     <UseMaui>true</UseMaui>
-    <MauiVersion>9.0.110</MauiVersion>
+    <MauiVersion>10.0.10</MauiVersion>
     <SingleProject>true</SingleProject>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
@@ -17,20 +17,20 @@
     <Nullable>enable</Nullable>
     <NoWarn>1591</NoWarn>
 
-    <Version>3.0.3</Version>
+    <Version>3.0.4</Version>
     <NeutralLanguage>en-US</NeutralLanguage>
     <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.110" />
-    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.110" />
-    <PackageReference Include="HtmlAgilityPack" Version="1.12.2" />
-    <PackageReference Include="Markdig" Version="0.42.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.10" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="10.0.10" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.12.4" />
+    <PackageReference Include="Markdig" Version="0.43.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="PassXYZ" Version="3.4.0" />
-    <PackageReference Include="SSH.NET" Version="2025.0.0" />
+    <PackageReference Include="SSH.NET" Version="2025.1.0" />
   </ItemGroup>
 
   <ItemGroup>
